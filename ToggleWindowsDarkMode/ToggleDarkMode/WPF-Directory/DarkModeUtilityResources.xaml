@@ -11,7 +11,7 @@
     
     <ContextMenu x:Shared="false" x:Key="SysTrayMenu">
         <MenuItem Header="Toggle Darkmode" Command="{Binding ToggleDarkModeCommand}" />
-        <MenuItem Header="Settings and Schedule..." Command="{Binding ShowSettingsCommand}" />
+        <MenuItem Header="Settings and Schedule..." Command="{Binding ShowSettingsAndScheduleCommand}" />
         <MenuItem Header="About..." Command="{Binding ShowAboutCommand}" />
         <Separator/>
         <MenuItem Header="Quit ToggleDarkMode ( v0.1 )" Command="{Binding ExitApplicationCommand}" />

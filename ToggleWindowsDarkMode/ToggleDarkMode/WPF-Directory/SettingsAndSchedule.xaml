@@ -1,0 +1,30 @@
+﻿<Window x:Class="ToggleWindowsDarkMode.SettingsAndSchedule"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ToggleWindowsDarkMode"
+        mc:Ignorable="d"
+        Title="Toggle-Dark-Mode Options" Height="600" Width="570">
+    <Grid Margin="0,-10,2,-21">
+        <TabControl HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="542" Margin="10,10,0,0">
+            <TabItem Header=" General Settings ">
+                <Grid Background="White">
+                    <Label Content="General" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <CheckBox Content="Run Toggle-Dark-Mode on Startup" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,36,0,0"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header=" Scheduling... ">
+                <Grid Background="White"/>
+            </TabItem>
+            <TabItem Header=" About... ">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="27*"/>
+                        <ColumnDefinition Width="241*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

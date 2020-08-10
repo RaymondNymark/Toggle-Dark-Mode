@@ -37,8 +37,8 @@ namespace ToggleWindowsDarkMode
             }
         }
 
-        // Opens up the Settings and Schedule Window.
-        public ICommand ShowSettingsCommand
+        // Opens up the Settings and Schedule Window if no other windows are present.
+        public ICommand ShowSettingsAndScheduleCommand
         {
             get
             {
@@ -47,7 +47,7 @@ namespace ToggleWindowsDarkMode
                     CanExecuteFunc = () => Application.Current.MainWindow == null,
                     CommandAction = () =>
                     {
-                        Application.Current.MainWindow = new MainWindow();
+                        Application.Current.MainWindow = new SettingsAndSchedule();
                         Application.Current.MainWindow.Show();
                     }
                 };

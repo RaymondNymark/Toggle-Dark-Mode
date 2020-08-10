@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ToggleDarkMode\WPF-Directory\Resources\Default.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Hardcodet.Wpf.TaskbarNotification, Version=1.0.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Hardcodet.NotifyIcon.Wpf.1.0.8\lib\net451\Hardcodet.Wpf.TaskbarNotification.dll</HintPath>
@@ -58,7 +61,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ToggleDarkMode\WPF-Directory\SettingsAndSchedule.xaml.cs">
+      <DependentUpon>SettingsAndSchedule.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ToggleDarkMode\Core\ToggleDarkMode.cs" />
+    <Page Include="ToggleDarkMode\WPF-Directory\SettingsAndSchedule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="ToggleDarkMode\WPF-Directory\DarkModeUtilityResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
