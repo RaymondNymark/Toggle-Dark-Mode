@@ -10,7 +10,7 @@ Requirements:
 
 ## Pictures of the App
 
-![1](https://github.com/RaymondNymark/Toggle-Dark-Mode/raw-assets/readme/1.png "1")
-![2](https://github.com/RaymondNymark/Toggle-Dark-Mode/raw-assets/readme/2.png "2")
+![1](https://github.com/RaymondNymark/Toggle-Dark-Mode/blob/master/raw-assets/readme/1.png "1")
+![2](https://github.com/RaymondNymark/Toggle-Dark-Mode/blob/master/raw-assets/readme/2.png "2")
 ---
 ##
