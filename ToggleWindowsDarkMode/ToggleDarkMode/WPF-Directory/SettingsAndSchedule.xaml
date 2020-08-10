@@ -10,8 +10,8 @@
         <TabControl HorizontalAlignment="Left" Height="549" VerticalAlignment="Top" Width="542" Margin="10,10,0,0">
             <TabItem Header=" General Settings ">
                 <Grid Background="White">
-                    <Label Content="General" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                    <CheckBox Content="Run Toggle-Dark-Mode on Startup" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,36,0,0"/>
+                    <Label Content="Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="EnableRunOnStartup" Content="Run Toggle-Dark-Mode when Windows starts" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,36,0,0"/>
                 </Grid>
             </TabItem>
             <TabItem Header=" Scheduling... ">
