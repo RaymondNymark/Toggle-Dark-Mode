@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30225.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToggleWindowsDarkMode", "ToggleWindowsDarkMode\ToggleWindowsDarkMode.csproj", "{330343BA-7CF0-47EC-B29F-51F4C28015CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{330343BA-7CF0-47EC-B29F-51F4C28015CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{330343BA-7CF0-47EC-B29F-51F4C28015CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{330343BA-7CF0-47EC-B29F-51F4C28015CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{330343BA-7CF0-47EC-B29F-51F4C28015CA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {27E877E0-78E3-427D-AA6B-E93D64C0D111}
+	EndGlobalSection
+EndGlobal

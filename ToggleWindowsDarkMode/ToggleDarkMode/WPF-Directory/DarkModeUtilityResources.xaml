@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ToggleWindowsDarkMode"
+                    xmlns:tb="http://www.hardcodet.net/taskbar">
+
+    <!-- The icon's context menu fields:
+    Just a little sample.
+    (Toggle Darkmode) -> ToggleDarkModeCommand
+    (Settings and Schedule) -> ShowSettingsCommand
+    (Quit ToggleDarkMode ( v0.1 ) -> QuitApplicationCommand -->
+    
+    <ContextMenu x:Shared="false" x:Key="SysTrayMenu">
+        <MenuItem Header="Toggle Darkmode" Command="{Binding ToggleDarkModeCommand}" />
+        <MenuItem Header="Settings and Schedule..." Command="{Binding ShowSettingsCommand}" />
+        <MenuItem Header="About..." Command="{Binding ShowAboutCommand}" />
+        <Separator/>
+        <MenuItem Header="Quit ToggleDarkMode ( v0.1 )" Command="{Binding ExitApplicationCommand}" />
+    </ContextMenu>
+
+    <!-- The app's NotifyIcon which also declares it's own view model. -->
+    <tb:TaskbarIcon x:Key="NotifyIcon"
+                    IconSource="Resources/Default.ico"
+                    ToolTipText="Left-click to toggle Dark-mode, right-click for menu."
+                    LeftClickCommand="{Binding ToggleDarkModeCommand}"
+                    ContextMenu="{StaticResource SysTrayMenu}">
+
+        <!-- Self assigning data context. -->
+        <tb:TaskbarIcon.DataContext>
+            <local:DarkModeUtilityViewModel />
+        </tb:TaskbarIcon.DataContext>
+    </tb:TaskbarIcon>
+
+</ResourceDictionary>
