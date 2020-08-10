@@ -101,7 +101,7 @@ namespace ToggleWindowsDarkMode
     }
 
     /// <summary>
-    /// Simplistic delegate command for the demo.
+    /// Simplistic delegate command.
     /// </summary>
     public class DelegateCommand : ICommand
     {
