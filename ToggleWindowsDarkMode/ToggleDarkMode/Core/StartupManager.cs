@@ -6,11 +6,13 @@ namespace ToggleWindowsDarkMode
 {
     public abstract class StartupManager
     {
-        public static string AssemblyName
+        /// <summary>
+        /// Returns the name of the current Assembly. Useful for naming!
+        /// </summary>
+        private static string AssemblyName
         {
             get
             {
-                // Returns the name of the current Assembly. Useful for naming!
                 return System.Reflection.Assembly.GetExecutingAssembly().GetName().Name;
             }
         }
@@ -34,16 +36,24 @@ namespace ToggleWindowsDarkMode
             }
         }
 
-
         /// <summary>
-        /// Accessing the current StartupState.  Possible states are Enabled, Disabled, Or DisabledByUser.
+        /// This retrieves and/or assigns the current StartupState of the
+        /// current application. The possible values are: Enabled, Disabled, or
+        /// DisabledByUser. DisabledByUser means that the user has explicitly
+        /// disabled this program to run on startup through the Task-manager or
+        /// through other means.
         /// </summary>
         public static StartupState StartupState
         {
             get
             {
+                // Checks registry if the key exists or not. Returns null if it doesn't exist.
                 if (Registry.GetValue("HKEY_CURRENT_USER\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", AssemblyName, null) != null)
                 {
+                    // Retrieves a binary value as an array from the
+                    // automatically generated key within StartupApproved\Run.
+                    // Value starting with "02" means enabled. If it starts with
+                    // "03", means the user explicitly disabled it.
                     byte[] status = Registry.GetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\StartupApproved\\Run", AssemblyName, null) as byte[];
 
                     if (status != null && status.Length > 0 && status[0] == 3)
