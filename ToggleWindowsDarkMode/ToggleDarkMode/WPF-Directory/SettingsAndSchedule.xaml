@@ -11,7 +11,11 @@
             <TabItem Header=" General Settings ">
                 <Grid Background="White">
                     <Label Content="Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-                    <CheckBox x:Name="EnableRunOnStartup" Content="Run Toggle-Dark-Mode when Windows starts" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,36,0,0"/>
+                    <CheckBox x:Name="EnableRunOnStartup"
+                              Content="Run Toggle-Dark-Mode when Windows starts"
+                              HorizontalAlignment="Left"
+                              VerticalAlignment="Top"
+                              Margin="25,36,0,0" Checked="EnableRunOnStartup_Checked" Unchecked="EnableRunOnStartup_Unchecked"/>
                 </Grid>
             </TabItem>
             <TabItem Header=" Scheduling... ">
