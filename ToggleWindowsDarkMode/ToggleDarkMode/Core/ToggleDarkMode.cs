@@ -79,9 +79,9 @@ namespace ToggleWindowsDarkMode
             string filePath;
 
             if (nextTheme == 1)
-                filePath = "pack://application:,,,/ToggleWindowsDarkMode;component/toggledarkmode/wpf-directory/Resources/Dark.ico";
+                filePath = "pack://application:,,,/Toggle-Dark-Mode;component/toggledarkmode/wpf-directory/Resources/Dark.ico";
             else
-                filePath = "pack://application:,,,/ToggleWindowsDarkMode;component/toggledarkmode/wpf-directory/Resources/Light.ico";
+                filePath = "pack://application:,,,/Toggle-Dark-Mode;component/toggledarkmode/wpf-directory/Resources/Light.ico";
 
             var uri = new Uri(filePath);
 
