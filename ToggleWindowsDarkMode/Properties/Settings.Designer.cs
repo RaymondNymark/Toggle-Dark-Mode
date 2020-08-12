@@ -26,24 +26,12 @@ namespace ToggleWindowsDarkMode.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool SystemHasBeenChecked {
+        public bool UserHasBeenWarnedAboutWin10BeingOutOfDate {
             get {
-                return ((bool)(this["SystemHasBeenChecked"]));
+                return ((bool)(this["UserHasBeenWarnedAboutWin10BeingOutOfDate"]));
             }
             set {
-                this["SystemHasBeenChecked"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool RunOnStartup {
-            get {
-                return ((bool)(this["RunOnStartup"]));
-            }
-            set {
-                this["RunOnStartup"] = value;
+                this["UserHasBeenWarnedAboutWin10BeingOutOfDate"] = value;
             }
         }
     }
