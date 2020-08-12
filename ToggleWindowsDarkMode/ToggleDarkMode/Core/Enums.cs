@@ -15,5 +15,16 @@ namespace ToggleWindowsDarkMode
             Enabled
         }
 
+        public enum ThemeState
+        {
+            Dark,
+            Light
+        }
+
+        public enum IconState
+        {
+            DarkIcon,
+            LightIcon
+        }
     }
 }
