@@ -21,8 +21,8 @@ namespace ToggleWindowsDarkMode
             // right) The icon is declared in DarkModeUtilityResources.
             notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
 
-            // Launching the startup launch method on startup.
-            ToggleDarkMode.Startup();
+            // Sets the current iconsource to the current theme.
+            ToggleDarkMode.IconState = (Enums.IconState)ToggleDarkMode.ThemeState;
         }
 
         protected override void OnExit(ExitEventArgs e)

@@ -14,9 +14,9 @@ namespace ToggleWindowsDarkMode
             {
                 return new DelegateCommand
                 {
-                    CommandAction = async () =>
+                    CommandAction = () =>
                     {
-                        await ToggleDarkMode.ToggleTheme();
+                        ToggleDarkMode.SwitchTheme();
                     }
                 };
             }
