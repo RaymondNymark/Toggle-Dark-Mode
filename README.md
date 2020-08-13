@@ -17,4 +17,5 @@ Requirements:
 ![2](https://github.com/RaymondNymark/Toggle-Dark-Mode/blob/master/raw-assets/readme/2.png "2")
 ![3](https://github.com/RaymondNymark/Toggle-Dark-Mode/blob/master/raw-assets/readme/3.png "3")
 ---
+Thank you for checking it out :)
 ##
