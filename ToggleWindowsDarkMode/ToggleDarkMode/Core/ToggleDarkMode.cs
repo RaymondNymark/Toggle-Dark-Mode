@@ -122,15 +122,15 @@ namespace ToggleWindowsDarkMode
         }
 
         /// <summary>
-        /// Warns the user once that their version of Windows 10 may be out of
-        /// date by lacking system wide dark / light themes.
+        /// Warns the user once that their version of Windows 10 may potentially
+        /// be out of date, as system wide dark mode feature isn't found. This
+        /// only happens once after this app has been launched.
         /// </summary>
         private static void WarnUserThatWindows10IsOutOfDate()
         {
             if (!Properties.Settings.Default.UserHasBeenWarnedAboutWin10BeingOutOfDate)
             {
-                //TODO FIX THIS.
-                App.notifyIcon.ShowBalloonTip("Windows 10 may be out of date.", "Your current version of Windows 10 lacks system wide dark mode, and thus may be out of date. This app should still function, but certain parts may not work.", default);
+                App.notifyIcon.ShowBalloonTip("Windows 10 may be out of date.", "Your version of Windows 10 may be out of date since it lacks system dark-mode. This app should still function, but certain parts may not work.", default);
 
                 Properties.Settings.Default.UserHasBeenWarnedAboutWin10BeingOutOfDate = true;
                 Properties.Settings.Default.Save();
