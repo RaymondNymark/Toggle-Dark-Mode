@@ -19,7 +19,9 @@
                 </Grid>
             </TabItem>
             <TabItem Header=" Scheduling... ">
-                <Grid Background="White"/>
+                <Grid Background="White">
+                    <Label Content="Scheduling will be coming soon!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                </Grid>
             </TabItem>
             <TabItem Header=" About... ">
                 <Grid Background="White">
@@ -27,6 +29,7 @@
                         <ColumnDefinition Width="27*"/>
                         <ColumnDefinition Width="241*"/>
                     </Grid.ColumnDefinitions>
+                    <Label Content="About will be coming soon!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
         </TabControl>
