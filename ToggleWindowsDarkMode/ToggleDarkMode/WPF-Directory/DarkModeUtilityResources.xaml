@@ -14,7 +14,7 @@
         <MenuItem Header="Settings and Schedule..." Command="{Binding ShowSettingsAndScheduleCommand}" />
         <MenuItem Header="About..." Command="{Binding ShowAboutCommand}" />
         <Separator/>
-        <MenuItem Header="Quit ToggleDarkMode ( v0.1 )" Command="{Binding ExitApplicationCommand}" />
+        <MenuItem Header="Quit Toggle-Dark-Mode ( v0.1 )" Command="{Binding ExitApplicationCommand}" />
     </ContextMenu>
 
     <!-- The app's NotifyIcon which also declares it's own view model. -->
