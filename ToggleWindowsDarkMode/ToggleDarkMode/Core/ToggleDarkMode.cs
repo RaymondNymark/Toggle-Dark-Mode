@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Win32;
 using Hardcodet.Wpf.TaskbarNotification;
-using System.Windows;
-using System.Drawing;
 using System.Windows.Media.Imaging;
 using static ToggleWindowsDarkMode.Enums;
 
