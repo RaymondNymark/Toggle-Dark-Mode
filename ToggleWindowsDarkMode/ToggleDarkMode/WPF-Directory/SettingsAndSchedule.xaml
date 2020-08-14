@@ -16,11 +16,8 @@
                               HorizontalAlignment="Left"
                               VerticalAlignment="Top"
                               Margin="25,36,0,0" Checked="EnableRunOnStartup_Checked" Unchecked="EnableRunOnStartup_Unchecked"/>
-                </Grid>
-            </TabItem>
-            <TabItem Header=" Scheduling... ">
-                <Grid Background="White">
-                    <Label Content="Scheduling will be coming soon!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Scheduling" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0"/>
+                    <CheckBox Content="Enable Scheduling" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top"/>
                 </Grid>
             </TabItem>
             <TabItem Header=" About... ">
