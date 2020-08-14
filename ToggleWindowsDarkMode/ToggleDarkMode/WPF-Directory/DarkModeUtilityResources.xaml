@@ -7,14 +7,14 @@
     Just a little sample.
     (Toggle Darkmode) -> ToggleDarkModeCommand
     (Settings and Schedule) -> ShowSettingsCommand
-    (Quit ToggleDarkMode ( v0.1 ) -> QuitApplicationCommand -->
+    (Quit ToggleDarkMode ( v1.0.0 ) -> QuitApplicationCommand -->
     
     <ContextMenu x:Shared="false" x:Key="SysTrayMenu">
         <MenuItem Header="Toggle Darkmode" Command="{Binding ToggleDarkModeCommand}" />
         <MenuItem Header="Settings and Schedule..." Command="{Binding ShowSettingsAndScheduleCommand}" />
         <MenuItem Header="About..." Command="{Binding ShowAboutCommand}" />
         <Separator/>
-        <MenuItem Header="Quit Toggle-Dark-Mode ( v1.0 )" Command="{Binding ExitApplicationCommand}" />
+        <MenuItem Header="Quit Toggle-Dark-Mode ( v1.0.0 )" Command="{Binding ExitApplicationCommand}" />
     </ContextMenu>
 
     <!-- The app's NotifyIcon which also declares it's own view model. -->
