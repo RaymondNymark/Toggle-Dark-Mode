@@ -31,5 +31,11 @@ namespace ToggleWindowsDarkMode
         {
             StartupManager.StartupState = Enums.StartupState.Disabled;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            var i2 = ScheduleTime.Value;
+            Application.Current.MainWindow.Close();
+        }
     }
 }

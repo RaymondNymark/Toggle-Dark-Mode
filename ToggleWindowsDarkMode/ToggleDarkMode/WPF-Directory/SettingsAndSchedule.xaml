@@ -19,7 +19,7 @@
                               Margin="25,36,0,0" Checked="EnableRunOnStartup_Checked" Unchecked="EnableRunOnStartup_Unchecked"/>
                     <Label Content="Scheduling" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0"/>
                     <CheckBox Content="Enable Scheduling" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top"/>
-                    <xctk:TimePicker HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,142,0,0" Width="136"/>
+                    <xctk:TimePicker x:Name="ScheduleTime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,142,0,0" Width="136"/>
                     <!--<RadioButton Content="Flip the theme between dark and light mode at a certain time of day" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,135,0,0" Checked="RadioButton_Checked"/>
                     <RadioButton Content="Set a time that automatically flips" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,223,0,0"/>-->
                 </Grid>
@@ -34,5 +34,6 @@
                 </Grid>
             </TabItem>
         </TabControl>
+        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,559,0,0" Click="Button_Click"/>
     </Grid>
 </Window>
