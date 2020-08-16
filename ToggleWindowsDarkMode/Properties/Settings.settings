@@ -5,5 +5,8 @@
     <Setting Name="UserHasBeenWarnedAboutWin10BeingOutOfDate" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="ScheduledTime" Type="System.DateTime" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
