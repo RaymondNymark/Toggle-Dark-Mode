@@ -45,5 +45,17 @@ namespace ToggleWindowsDarkMode.Properties {
                 this["ScheduledTime"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ScheduleEnabled {
+            get {
+                return ((bool)(this["ScheduleEnabled"]));
+            }
+            set {
+                this["ScheduleEnabled"] = value;
+            }
+        }
     }
 }
