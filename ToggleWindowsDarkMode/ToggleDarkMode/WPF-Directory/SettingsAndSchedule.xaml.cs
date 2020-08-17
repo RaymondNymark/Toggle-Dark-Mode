@@ -34,25 +34,7 @@ namespace ToggleWindowsDarkMode
             StartupManager.StartupState = Enums.StartupState.Disabled;
         }
 
-        //TODO: Remove this TMP function.  Serves temporary purpose of input data.  This will be made into something more useful soon.
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            //ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(5), true);
-            //ScheduleManager.TestTask();
-            
-            //ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(5), true);
-
-            //if (ScheduleTime.Value != null)
-            //{ 
-            //Properties.Settings.Default.ScheduledTime = (System.DateTime)ScheduleTime.Value;
-            //Properties.Settings.Default.Save();
-
-            //ScheduleManager.ToggleDarkModeAtSpecificTime(Properties.Settings.Default.ScheduledTime, true);
-            //}
-            Application.Current.MainWindow.Close();
-        }
         #region Debug-Options and Methods
-
         private void ScheduleRunButton_Click(object sender, RoutedEventArgs e)
         {
             // Should toggle darkmode after 5 seconds.
@@ -65,5 +47,10 @@ namespace ToggleWindowsDarkMode
         }
 
         #endregion
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.MainWindow.Close();
+        }
     }
 }
