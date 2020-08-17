@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 
@@ -54,12 +55,13 @@ namespace ToggleWindowsDarkMode
 
         private void ScheduleRunButton_Click(object sender, RoutedEventArgs e)
         {
-
+            // Should toggle darkmode after 5 seconds.
+            ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(8), true);
         }
 
         private void ScheduleCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            ScheduleManager.CancelScheduledTask();
         }
 
         #endregion
