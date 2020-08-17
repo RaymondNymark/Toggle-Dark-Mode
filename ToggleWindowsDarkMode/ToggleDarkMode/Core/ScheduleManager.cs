@@ -10,49 +10,15 @@ namespace ToggleWindowsDarkMode
     public static class ScheduleManager
     {
         /// <summary>
-        /// Method to run a task at a specific time. For this application,
+        /// Method to run a task at a specific time.  For this application, a
         /// certain task will be to toggle between dark mode at a certain time.
-        /// Cancelable Task.
+        /// This task can be canceled. 
         /// </summary>
-        /// <param name="scheduleTime">When to run a specific task.</param>
-        /// <param name="repeatScheduledTask">Set to true or false depending on
-        /// if the task will be repeated after completion.</param>
+        /// <param name="WhenToRunTask">At what DateTime to run a specific
+        /// Task</param>
+        /// <param name="RepeatTask">Boolean, if set to true the task will
+        /// repeat running.</param>
         /// <returns></returns>
-        public async static Task RunTaskAtSpecificTimeAsync123(DateTime scheduleTime, bool repeatScheduledTask)
-        {
-            var ct = new CancellationTokenSource();
-            var timeDifferenceInMS = (scheduleTime - DateTime.UtcNow).TotalMilliseconds;
-
-        }
-
-        public static void ToggleDarkModeAtSpecificTime(DateTime scheduleTime, bool repeatScheduledTask)
-        {
-            var ct = new CancellationTokenSource();
-            var timeDifferenceInMS = (int)(scheduleTime - DateTime.UtcNow).TotalMilliseconds;
-
-            Task.Delay(timeDifferenceInMS).ContinueWith((x) =>
-            {
-                // What method to run
-                ToggleDarkMode.SwitchTheme();
-
-                if (repeatScheduledTask)
-                {
-                    ToggleDarkModeAtSpecificTime(scheduleTime.AddDays(1), true);
-                }
-            }, ct.Token);
-        }
-
-
-        public static async Task RunTaskAtSpecificTimeStartupAsync()
-        {
-            // Encapsulate this somewhere else?
-            if (Properties.Settings.Default.ScheduleEnabled)
-            {
-                var savedStartTime = Properties.Settings.Default.ScheduledTime;
-                await RunTaskAtSpecificTimeAsync(savedStartTime, true);
-            }
-        }
-
         public static async Task RunTaskAtSpecificTimeAsync(DateTime WhenToRunTask, bool RepeatTask)
         {
             var TimeSpanInMS = (int)(WhenToRunTask - DateTime.UtcNow).TotalMilliseconds;
@@ -69,9 +35,33 @@ namespace ToggleWindowsDarkMode
             else
             {
                 // Delay the running of task for set amount of time.
-                throw new NotImplementedException();
+                using (var cancellationTokenSource = new CancellationTokenSource(TimeSpanInMS))
+                {
+                    try
+                    {
+                        await Task.Delay(TimeSpanInMS).ContinueWith((x) =>
+                        {
+                            ToggleDarkMode.SwitchTheme();
+                        }, cancellationTokenSource.Token);
+                    }
+                    catch (TaskCanceledException)
+                    {
+                        // Don't really do anything.
+                    }
+                }
             }
-
         }
+
+        public static async Task RunTaskAtSpecificTimeStartupAsync()
+        {
+            // Encapsulate this somewhere else?
+            if (Properties.Settings.Default.ScheduleEnabled)
+            {
+                var savedStartTime = Properties.Settings.Default.ScheduledTime;
+                await RunTaskAtSpecificTimeAsync(savedStartTime, true);
+            }
+        }
+
+
     }
 }
