@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 
-
 namespace ToggleWindowsDarkMode
 {
     /// <summary>
@@ -32,10 +31,17 @@ namespace ToggleWindowsDarkMode
             StartupManager.StartupState = Enums.StartupState.Disabled;
         }
 
+        //TODO: Remove this TMP function.  Serves temporary purpose of input data.  This will be made into something more useful soon.
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var i2 = ScheduleTime.Value;
-            Application.Current.MainWindow.Close();
+            if (ScheduleTime.Value != null)
+            { 
+            Properties.Settings.Default.ScheduledTime = (System.DateTime)ScheduleTime.Value;
+            Properties.Settings.Default.Save();
+
+            ScheduleManager.ToggleDarkModeAtSpecificTime(Properties.Settings.Default.ScheduledTime, true);
+            }
+        Application.Current.MainWindow.Close();
         }
     }
 }
