@@ -33,7 +33,19 @@
                     <Label Content="About will be coming soon!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.ColumnSpan="2"/>
                 </Grid>
             </TabItem>
+            <TabItem x:Name="Debug" Header="Debug">
+                <Grid Background="White">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="107*"/>
+                        <ColumnDefinition Width="429*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,559,0,-38" Click="Button_Click" Height="0"/>
+                    <Button x:Name="ScheduleRunButton" Content="ScheduleRun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="76" Margin="21,70,0,0" Height="20" Click="Button_Click_1"/>
+                    <Button Content="ScheduleCancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="21,100,0,0" Height="20"/>
+                    <Label Content="Schedule Debug" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,39,0,0" Height="26" Width="121" Grid.ColumnSpan="2"/>
+                    <Label Content="System.Settings" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,144,0,0" Width="97" Height="26" Grid.ColumnSpan="2"/>
+                </Grid>
+            </TabItem>
         </TabControl>
-        <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,559,0,0" Click="Button_Click"/>
     </Grid>
 </Window>

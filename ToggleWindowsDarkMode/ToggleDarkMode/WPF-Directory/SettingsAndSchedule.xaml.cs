@@ -36,7 +36,7 @@ namespace ToggleWindowsDarkMode
         //TODO: Remove this TMP function.  Serves temporary purpose of input data.  This will be made into something more useful soon.
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(5), true);
+            //ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(5), true);
             //ScheduleManager.TestTask();
             
             //ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(5), true);
@@ -50,5 +50,18 @@ namespace ToggleWindowsDarkMode
             //}
             Application.Current.MainWindow.Close();
         }
+        #region Debug-Methods
+
+        private void ScheduleRunButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ScheduleCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }
