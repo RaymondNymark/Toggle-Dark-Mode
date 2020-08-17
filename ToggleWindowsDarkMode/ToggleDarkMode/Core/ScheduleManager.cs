@@ -8,9 +8,17 @@ namespace ToggleWindowsDarkMode
 {
     public static class ScheduleManager
     {
+        // Private CTS used to keep track if scheduled task was canceled. 
         private static CancellationTokenSource cancellationTokenSource;
 
-
+        /// <summary>
+        /// Method to switch between the current Windows theme at a specific
+        /// time. Scheduled task can be canceled with CancelScheduledTask
+        /// method.
+        /// </summary>
+        /// <param name="whenToRunTask">At what DateTime to switch the current Windows theme.</param>
+        /// <param name="repeatTask">Should this task be repeated.</param>
+        /// <returns></returns>
         public static async Task RunTaskAtSpecificTimeAsync(DateTime whenToRunTask, bool repeatTask)
         {
             cancellationTokenSource = new CancellationTokenSource();
@@ -21,10 +29,7 @@ namespace ToggleWindowsDarkMode
                 // Instantly run the task.
                 ToggleDarkMode.SwitchTheme();
 
-                if (repeatTask)
-                {
-                    await RunTaskAtSpecificTimeAsync(whenToRunTask.AddDays(1), true);
-                }
+                if (repeatTask) await RunTaskAtSpecificTimeAsync(whenToRunTask.AddDays(1), true);
             }
             else
             {
@@ -44,7 +49,6 @@ namespace ToggleWindowsDarkMode
         /// <returns></returns>
         private static Task RunTaskAfterDelay(int howLongToDelayTaskForInMS)
         {
-            //cancellationTokenSource = new CancellationTokenSource();
             return Task.Run(() =>
             {
                 Task.Delay(howLongToDelayTaskForInMS).ContinueWith((x) =>
@@ -54,15 +58,15 @@ namespace ToggleWindowsDarkMode
             });
         }
 
-        
-
-
         public static void CancelScheduledTask()
         {
             cancellationTokenSource.Cancel();
         }
 
-
+        /// <summary>
+        /// Task to run on program startup.
+        /// </summary>
+        /// <returns></returns>
         public static async Task RunTaskAtSpecificTimeStartupAsync()
         {
             // Encapsulate this somewhere else?
