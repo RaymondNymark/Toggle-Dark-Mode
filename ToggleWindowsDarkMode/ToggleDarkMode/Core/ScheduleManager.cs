@@ -52,6 +52,7 @@ namespace ToggleWindowsDarkMode
             }
         }
 
+
         public static async Task RunTaskAtSpecificTimeStartupAsync()
         {
             // Encapsulate this somewhere else?
@@ -62,6 +63,21 @@ namespace ToggleWindowsDarkMode
             }
         }
 
+
+        public static void TestTask()
+        {
+            var ctSource = new CancellationTokenSource();
+
+            var tsinMS = 5000;
+
+            Task.Delay(tsinMS).ContinueWith((x) =>
+            {
+                ToggleDarkMode.SwitchTheme();
+
+                TestTask();
+            }, ctSource.Token);
+
+        }
 
     }
 }

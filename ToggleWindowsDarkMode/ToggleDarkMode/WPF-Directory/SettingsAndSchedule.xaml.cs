@@ -1,4 +1,6 @@
-﻿using System.Windows;
+﻿using System;
+using System.Threading.Tasks;
+using System.Windows;
 
 namespace ToggleWindowsDarkMode
 {
@@ -34,14 +36,19 @@ namespace ToggleWindowsDarkMode
         //TODO: Remove this TMP function.  Serves temporary purpose of input data.  This will be made into something more useful soon.
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (ScheduleTime.Value != null)
-            { 
-            Properties.Settings.Default.ScheduledTime = (System.DateTime)ScheduleTime.Value;
-            Properties.Settings.Default.Save();
+            //Task.Run(() => ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(15), true));
+            ScheduleManager.TestTask();
 
-            ScheduleManager.ToggleDarkModeAtSpecificTime(Properties.Settings.Default.ScheduledTime, true);
-            }
-        Application.Current.MainWindow.Close();
+            //ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(5), true);
+
+            //if (ScheduleTime.Value != null)
+            //{ 
+            //Properties.Settings.Default.ScheduledTime = (System.DateTime)ScheduleTime.Value;
+            //Properties.Settings.Default.Save();
+
+            //ScheduleManager.ToggleDarkModeAtSpecificTime(Properties.Settings.Default.ScheduledTime, true);
+            //}
+            Application.Current.MainWindow.Close();
         }
     }
 }
