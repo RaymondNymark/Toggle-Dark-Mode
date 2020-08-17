@@ -35,7 +35,7 @@ namespace ToggleWindowsDarkMode
             else
             {
                 // Delay the running of task for set amount of time.
-                using (var cancellationTokenSource = new CancellationTokenSource(TimeSpanInMS))
+                var cancellationTokenSource = new CancellationTokenSource();
                 {
                     try
                     {
@@ -51,7 +51,13 @@ namespace ToggleWindowsDarkMode
                 }
             }
         }
+        public static void RunTaskAtSpecificTime(DateTime whenToRunTask, bool repeatTask)
+        {
+            var cancellationTokenSource = new CancellationTokenSource();
+            var TimeSpanInMS = (int)(whenToRunTask - DateTime.UtcNow).TotalMilliseconds;
 
+
+        }
 
         public static async Task RunTaskAtSpecificTimeStartupAsync()
         {
