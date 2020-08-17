@@ -51,12 +51,12 @@ namespace ToggleWindowsDarkMode
             //}
             Application.Current.MainWindow.Close();
         }
-        #region Debug-Methods
+        #region Debug-Options and Methods
 
         private void ScheduleRunButton_Click(object sender, RoutedEventArgs e)
         {
             // Should toggle darkmode after 5 seconds.
-            ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(8), true);
+            ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(-8), true);
         }
 
         private void ScheduleCancel_Click(object sender, RoutedEventArgs e)
