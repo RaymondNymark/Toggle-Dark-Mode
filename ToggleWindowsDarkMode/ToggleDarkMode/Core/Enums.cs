@@ -26,5 +26,11 @@ namespace ToggleWindowsDarkMode
             DarkIcon,
             LightIcon
         }
+
+        public enum ScheduleState
+        {
+            Enabled,
+            Disabled
+        }
     }
 }
