@@ -14,6 +14,8 @@ namespace ToggleWindowsDarkMode
         {
             InitializeComponent();
 
+            // TODO : Implement data binding to avoid this.
+
             if (StartupManager.StartupState == Enums.StartupState.Enabled)
             {
                 EnableRunOnStartup.IsChecked = true;
@@ -22,6 +24,17 @@ namespace ToggleWindowsDarkMode
             {
                 EnableRunOnStartup.IsChecked = false;
             }
+
+            if (ScheduleManager.ScheduleState == Enums.ScheduleState.Enabled)
+            {
+                EnableScheduling.IsChecked = true;
+            }
+            else
+            {
+                EnableScheduling.IsChecked = false;
+            }
+
+            //ScheduleTime.Value = Properties.Settings.Default.ScheduledTime;
         }
 
         private void EnableRunOnStartup_Checked(object sender, RoutedEventArgs e)
@@ -55,12 +68,28 @@ namespace ToggleWindowsDarkMode
 
         private void EnableScheduling_Checked(object sender, RoutedEventArgs e)
         {
-            ScheduleManager.ScheduleState = Enums.ScheduleState.Enabled;
+            //ScheduleManager.ScheduleState = Enums.ScheduleState.Enabled;
         }
 
         private void EnableScheduling_Unchecked(object sender, RoutedEventArgs e)
         {
-            ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
+            //ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
+        }
+
+        // This event handler handles saving changes made to Scheduling.
+        private void SaveSettings_Click(object sender, RoutedEventArgs e)
+        {
+            if ((bool)EnableScheduling.IsChecked)
+            {
+                // TODO : Implement data binding. This sends the class new datetime.
+                ScheduleManager.RetrieveDateTime((DateTime)ScheduleTime.Value);
+
+                ScheduleManager.ScheduleState = Enums.ScheduleState.Enabled;
+            }
+            else
+            {
+                ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
+            }
         }
     }
 }
