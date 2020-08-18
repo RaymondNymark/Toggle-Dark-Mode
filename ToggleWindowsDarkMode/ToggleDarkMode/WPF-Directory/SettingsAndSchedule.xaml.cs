@@ -52,5 +52,15 @@ namespace ToggleWindowsDarkMode
         {
             Application.Current.MainWindow.Close();
         }
+
+        private void EnableScheduling_Checked(object sender, RoutedEventArgs e)
+        {
+            ScheduleManager.ScheduleState = Enums.ScheduleState.Enabled;
+        }
+
+        private void EnableScheduling_Unchecked(object sender, RoutedEventArgs e)
+        {
+            ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
+        }
     }
 }
