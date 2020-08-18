@@ -44,7 +44,7 @@ namespace ToggleWindowsDarkMode
             {
                 return new DelegateCommand
                 {
-                    CanExecuteFunc = () => Application.Current.MainWindow == null,
+                    //CanExecuteFunc = () => Application.Current.MainWindow == null,
                     CommandAction = () =>
                     {
                         Application.Current.MainWindow = new SettingsAndSchedule();
