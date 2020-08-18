@@ -18,7 +18,7 @@
                               VerticalAlignment="Top"
                               Margin="25,36,0,0" Checked="EnableRunOnStartup_Checked" Unchecked="EnableRunOnStartup_Unchecked"/>
                     <Label Content="Scheduling" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0"/>
-                    <CheckBox Content="Enable Scheduling" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="EnableScheduling" Content="Enable Scheduling" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top" Checked="EnableScheduling_Checked" Unchecked="EnableScheduling_Unchecked"/>
                     <xctk:TimePicker x:Name="ScheduleTime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,142,0,0" Width="136"/>
                     <!--<RadioButton Content="Flip the theme between dark and light mode at a certain time of day" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,135,0,0" Checked="RadioButton_Checked"/>
                     <RadioButton Content="Set a time that automatically flips" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,223,0,0"/>-->
@@ -39,7 +39,6 @@
                         <ColumnDefinition Width="107*"/>
                         <ColumnDefinition Width="429*"/>
                     </Grid.ColumnDefinitions>
-                    <Button Content="Button" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,559,0,-38" Click="Button_Click" Height="0"/>
                     <Button x:Name="ScheduleRunButton" Content="ScheduleRun" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="21,70,0,0" Height="20" Click="ScheduleRunButton_Click" Grid.ColumnSpan="2"/>
                     <Button x:Name="ScheduleCancel" Content="ScheduleCancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="21,100,0,0" Height="20" Grid.ColumnSpan="2" Click="ScheduleCancel_Click"/>
                     <Label Content="Schedule Debug" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,39,0,0" Height="26" Width="121" Grid.ColumnSpan="2"/>
@@ -48,6 +47,6 @@
             </TabItem>
         </TabControl>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="490,540,0,0" Click="CancelButton_Click"/>
-        <Button Content="Done" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="410,540,0,0"/>
+        <Button x:Name="SaveSettings" Content="Done" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="410,540,0,0" Click="SaveSettings_Click"/>
     </Grid>
 </Window>
