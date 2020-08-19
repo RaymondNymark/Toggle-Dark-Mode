@@ -111,5 +111,10 @@ namespace ToggleWindowsDarkMode
         {
             ScheduleManager.CancelScheduledTask();
         }
+
+        private void ToggleThemeDebugBuggon_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleDarkMode.SwitchTheme();
+        }
     }
 }

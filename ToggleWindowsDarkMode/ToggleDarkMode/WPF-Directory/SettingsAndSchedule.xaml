@@ -46,6 +46,8 @@
                     <Button x:Name="DebugScheduleStart" Content="Start Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="45,210,0,0" Grid.ColumnSpan="2" Click="DebugScheduleStart_Click"/>
                     <xctk:TimePicker x:Name="DebugScheduleTimePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="21,175,0,0" Width="149" Grid.ColumnSpan="2"/>
                     <Button x:Name="DebugScheduleCancel" Content="Cancel Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="45,245,0,0" Grid.ColumnSpan="2" Click="DebugScheduleCancel_Click"/>
+                    <Button x:Name="DebugScheduleCancel_Copy" Content="Cancel Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="45,245,0,0" Grid.ColumnSpan="2" Click="DebugScheduleCancel_Click"/>
+                    <Button x:Name="ToggleThemeDebugBuggon" Content="Cancel Schedule" HorizontalAlignment="Left" VerticalAlignment="Top" Width="97" Margin="53,70,0,0" Click="ToggleThemeDebugBuggon_Click" Grid.Column="1"/>
                 </Grid>
             </TabItem>
         </TabControl>
