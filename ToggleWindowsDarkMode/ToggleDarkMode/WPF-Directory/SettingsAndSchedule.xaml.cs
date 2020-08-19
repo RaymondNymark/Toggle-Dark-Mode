@@ -100,5 +100,16 @@ namespace ToggleWindowsDarkMode
             //    //ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
             //}
         }
+
+        private void DebugScheduleStart_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime time = (DateTime)DebugScheduleTimePicker.Value;
+            ScheduleManager.SwitchThemeAt(time.ToUniversalTime());
+        }
+
+        private void DebugScheduleCancel_Click(object sender, RoutedEventArgs e)
+        {
+            ScheduleManager.CancelScheduledTask();
+        }
     }
 }
