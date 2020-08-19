@@ -68,34 +68,37 @@ namespace ToggleWindowsDarkMode
 
         private void EnableScheduling_Checked(object sender, RoutedEventArgs e)
         {
-            ScheduleTime.IsEnabled = true;
-            SaveSettings.IsEnabled = true;
-            
-            //ScheduleManager.ScheduleState = Enums.ScheduleState.Enabled;
+            //ScheduleTime.IsEnabled = true;
+            //SaveSettings.IsEnabled = true;
         }
 
         private void EnableScheduling_Unchecked(object sender, RoutedEventArgs e)
         {
-            ScheduleTime.IsEnabled = false;
-            SaveSettings.IsEnabled = false;
-
-            //ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
+            //ScheduleTime.IsEnabled = false;
+            //SaveSettings.IsEnabled = false;
         }
 
         // This event handler handles saving changes made to Scheduling.
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
-            if ((bool)EnableScheduling.IsChecked)
-            {
-                // TODO : Implement data binding. This sends the class new datetime.
-                //ScheduleManager.RetrieveDateTime((DateTime)ScheduleTime.Value);
+            Properties.Settings.Default.ScheduleEnabled = (bool)EnableScheduling.IsChecked;
+            Properties.Settings.Default.ScheduledTime = (DateTime)ScheduleTime.Value;
+            Properties.Settings.Default.Save();
 
-                //ScheduleManager.ScheduleState = Enums.ScheduleState.Enabled;
-            }
-            else
-            {
-                //ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
-            }
+            ScheduleManager.ScheduleStartup();
+
+
+            //if ((bool)EnableScheduling.IsChecked)
+            //{
+            //    // TODO : Implement data binding. This sends the class new datetime.
+            //    //ScheduleManager.RetrieveDateTime((DateTime)ScheduleTime.Value);
+
+            //    //ScheduleManager.ScheduleState = Enums.ScheduleState.Enabled;
+            //}
+            //else
+            //{
+            //    //ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
+            //}
         }
     }
 }

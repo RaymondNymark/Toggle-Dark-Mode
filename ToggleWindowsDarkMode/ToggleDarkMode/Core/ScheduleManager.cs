@@ -10,7 +10,7 @@ namespace ToggleWindowsDarkMode
     public static class ScheduleManager
     {
         // Private CTS used to keep track if scheduled task was canceled. 
-        private static CancellationTokenSource cancellationTokenSource;
+        private static CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
         // Keeps track of userDateTimeInput. This is a temporary band-aid fix.
         private static DateTime userDateTimeInput;
@@ -25,21 +25,29 @@ namespace ToggleWindowsDarkMode
         /// <returns></returns>
         public static async Task RunTaskAtSpecificTimeAsync(DateTime whenToRunTask, bool repeatTask)
         {
+            int timeSpanInMS = (int)(whenToRunTask.ToUniversalTime() - DateTime.UtcNow).TotalMilliseconds;
+
             cancellationTokenSource = new CancellationTokenSource();
-            var timeSpanInMS = (int)(whenToRunTask - DateTime.UtcNow).TotalMilliseconds;
 
-            if (timeSpanInMS < 0)
-            {
-                // Instantly run the task.
-                ToggleDarkMode.SwitchTheme();
-
-                if (repeatTask) await RunTaskAtSpecificTimeAsync(whenToRunTask.AddDays(1), true);
-            }
-            else
+            if (timeSpanInMS > 0)
             {
                 // Delay running a task by a set number of time. After it ran,
                 // repeat it but make it run 24hr later.
                 await RunTaskAfterDelay(timeSpanInMS).ContinueWith(async (x) => { if (repeatTask) await Task.Run(() => RunTaskAtSpecificTimeAsync(whenToRunTask.AddDays(1), true)); });
+            }
+            else
+            {
+                if (timeSpanInMS < 0)
+                {
+                    // Instantly run the task.
+                    ToggleDarkMode.SwitchTheme();
+
+                    if (repeatTask) await RunTaskAtSpecificTimeAsync(whenToRunTask.AddDays(1), true);
+                }
+                else
+                {
+                    throw new NotImplementedException();
+                }
             }
         }
 
@@ -80,6 +88,7 @@ namespace ToggleWindowsDarkMode
                 await RunTaskAtSpecificTimeAsync(savedStartTime, true);
             }
         }
+
 
 
         public static ScheduleState ScheduleState
@@ -131,6 +140,23 @@ namespace ToggleWindowsDarkMode
         public static void RetrieveDateTime(DateTime dateTime)
         {
             userDateTimeInput = dateTime.ToUniversalTime();
+        }
+
+
+        public static void ScheduleStartup()
+        {
+            var whenToRunTask = Properties.Settings.Default.ScheduledTime;
+
+            if (cancellationTokenSource.Token.CanBeCanceled)
+            {
+                CancelScheduledTask();
+            }
+
+            if (Properties.Settings.Default.ScheduleEnabled)
+            {
+                RunTaskAtSpecificTimeAsync(whenToRunTask, true);
+            }
+            
         }
 
     }
