@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 using static ToggleWindowsDarkMode.Enums;
 namespace ToggleWindowsDarkMode
 {
@@ -177,24 +178,26 @@ namespace ToggleWindowsDarkMode
             else
             {
                 // Switches if it's due to a change.
-                ToggleDarkMode.SwitchTheme();
+                Application.Current.Dispatcher.Invoke(() => ToggleDarkMode.SwitchTheme());
                 //whenToSwitch = whenToSwitch.AddDays(1);
 
                 //tmp debug
-                whenToSwitch = whenToSwitch.AddSeconds(10);
+                whenToSwitch = whenToSwitch.AddSeconds(65);
                 howLongToDelayFor = whenToSwitch - dateNow;
             }
 
             Task.Delay(howLongToDelayFor).ContinueWith((x) =>
             {
-                // Method to run once the delay is over.
-                ToggleDarkMode.SwitchTheme();
+                // Method to run once the delay is over. Dispatcher has to be
+                // invoked since the UI thread is being updated by a non main
+                // thread.
+                Application.Current.Dispatcher.Invoke(() => ToggleDarkMode.SwitchTheme());
 
                 // Set up the method to run the next day.
                 //SwitchThemeAt(whenToSwitch.AddDays(1));
 
                 //tmp debug
-                SwitchThemeAt(whenToSwitch.AddSeconds(10));
+                SwitchThemeAt(whenToSwitch.AddSeconds(65));
             }, cancellationTokenSource.Token);
         }
 
