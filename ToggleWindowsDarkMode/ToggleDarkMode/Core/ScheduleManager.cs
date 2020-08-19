@@ -25,6 +25,9 @@ namespace ToggleWindowsDarkMode
         /// <returns></returns>
         public static async Task RunTaskAtSpecificTimeAsync(DateTime whenToRunTask, bool repeatTask)
         {
+            // There is something wrong with this method, something causing
+            // timeSpanInMs to be calculated to -2.147b.  And I can't figure it
+            // out for the life of me.
             int timeSpanInMS = (int)(whenToRunTask.ToUniversalTime() - DateTime.UtcNow).TotalMilliseconds;
 
             cancellationTokenSource = new CancellationTokenSource();
@@ -50,9 +53,6 @@ namespace ToggleWindowsDarkMode
                 }
             }
         }
-
-
-
 
         /// <summary>
         /// Runs SwitchTheme task after a delay in MS.
