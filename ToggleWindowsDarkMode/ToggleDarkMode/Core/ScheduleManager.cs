@@ -159,5 +159,69 @@ namespace ToggleWindowsDarkMode
             
         }
 
+
+
+
+        #region New Additions
+        public static void SwitchThemeAt(DateTime whenToSwitch)
+        {
+            cancellationTokenSource = new CancellationTokenSource();
+
+            var dateNow = DateTime.UtcNow;
+            TimeSpan howLongToDelayFor;
+
+            if (whenToSwitch > dateNow)
+            {
+                howLongToDelayFor = whenToSwitch - dateNow;
+            }
+            else
+            {
+                // Switches if it's due to a change.
+                ToggleDarkMode.SwitchTheme();
+                //whenToSwitch = whenToSwitch.AddDays(1);
+
+                //tmp debug
+                whenToSwitch = whenToSwitch.AddSeconds(10);
+                howLongToDelayFor = whenToSwitch - dateNow;
+            }
+
+            Task.Delay(howLongToDelayFor).ContinueWith((x) =>
+            {
+                // Method to run once the delay is over.
+                ToggleDarkMode.SwitchTheme();
+
+                // Set up the method to run the next day.
+                //SwitchThemeAt(whenToSwitch.AddDays(1));
+
+                //tmp debug
+                SwitchThemeAt(whenToSwitch.AddSeconds(10));
+            }, cancellationTokenSource.Token);
+        }
+
+        //public static ScheduleState ScheduleStateV2
+        //{
+        //    get
+        //    {
+        //        if (Properties.Settings.Default.ScheduleEnabled)
+        //        {
+        //            return ScheduleState.Enabled;
+        //        }
+        //        else
+        //        {
+        //            return ScheduleState.Disabled;
+        //        }
+        //    }
+        //    set
+        //    {
+        //        if (value == ScheduleState.Enabled)
+        //        {
+
+        //        }
+        //        else // Disable
+        //        {
+
+        //        }
+        //}
+        #endregion
     }
 }
