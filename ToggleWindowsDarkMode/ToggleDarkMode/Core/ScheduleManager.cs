@@ -179,10 +179,8 @@ namespace ToggleWindowsDarkMode
             {
                 // Switches if it's due to a change.
                 Application.Current.Dispatcher.Invoke(() => ToggleDarkMode.SwitchTheme());
-                //whenToSwitch = whenToSwitch.AddDays(1);
+                whenToSwitch = whenToSwitch.AddDays(1);
 
-                //tmp debug
-                whenToSwitch = whenToSwitch.AddSeconds(65);
                 howLongToDelayFor = whenToSwitch - dateNow;
             }
 
@@ -194,10 +192,7 @@ namespace ToggleWindowsDarkMode
                 Application.Current.Dispatcher.Invoke(() => ToggleDarkMode.SwitchTheme());
 
                 // Set up the method to run the next day.
-                //SwitchThemeAt(whenToSwitch.AddDays(1));
-
-                //tmp debug
-                SwitchThemeAt(whenToSwitch.AddSeconds(65));
+                SwitchThemeAt(whenToSwitch.AddDays(1));
             }, cancellationTokenSource.Token);
         }
 
