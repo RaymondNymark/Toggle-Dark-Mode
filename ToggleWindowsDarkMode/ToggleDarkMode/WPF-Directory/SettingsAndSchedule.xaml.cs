@@ -25,14 +25,14 @@ namespace ToggleWindowsDarkMode
                 EnableRunOnStartup.IsChecked = false;
             }
 
-            //if (ScheduleManager.ScheduleState == Enums.ScheduleState.Enabled)
-            //{
-            //    EnableScheduling.IsChecked = true;
-            //}
-            //else
-            //{
-            //    EnableScheduling.IsChecked = false;
-            //}
+            if (ScheduleManager.ScheduleState == Enums.ScheduleState.Enabled)
+            {
+                EnableScheduling.IsChecked = true;
+            }
+            else
+            {
+                EnableScheduling.IsChecked = false;
+            }
 
             //ScheduleTime.Value = Properties.Settings.Default.ScheduledTime;
         }
@@ -51,7 +51,7 @@ namespace ToggleWindowsDarkMode
         private void ScheduleRunButton_Click(object sender, RoutedEventArgs e)
         {
             // Should toggle darkmode after 5 seconds.
-            ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(8), true);
+            //ScheduleManager.RunTaskAtSpecificTimeAsync(DateTime.UtcNow.AddSeconds(8), true);
         }
 
         private void ScheduleCancel_Click(object sender, RoutedEventArgs e)
@@ -68,37 +68,32 @@ namespace ToggleWindowsDarkMode
 
         private void EnableScheduling_Checked(object sender, RoutedEventArgs e)
         {
+            ScheduleTime.IsEnabled = true;
+            SaveButton.IsEnabled = true;
+
             //ScheduleTime.IsEnabled = true;
             //SaveSettings.IsEnabled = true;
         }
 
         private void EnableScheduling_Unchecked(object sender, RoutedEventArgs e)
         {
-            //ScheduleTime.IsEnabled = false;
-            //SaveSettings.IsEnabled = false;
+            ScheduleTime.IsEnabled = false;
+            SaveButton.IsEnabled = false;
         }
 
         // This event handler handles saving changes made to Scheduling.
         private void SaveSettings_Click(object sender, RoutedEventArgs e)
         {
-            Properties.Settings.Default.ScheduleEnabled = (bool)EnableScheduling.IsChecked;
-            Properties.Settings.Default.ScheduledTime = (DateTime)ScheduleTime.Value;
-            Properties.Settings.Default.Save();
+            if ((bool)EnableScheduling.IsChecked)
+            {
+                ScheduleManager.ScheduleState = Enums.ScheduleState.Enabled;
+            }
+            else
+            {
+                ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
+            }
 
-            ScheduleManager.ScheduleStartup();
-
-
-            //if ((bool)EnableScheduling.IsChecked)
-            //{
-            //    // TODO : Implement data binding. This sends the class new datetime.
-            //    //ScheduleManager.RetrieveDateTime((DateTime)ScheduleTime.Value);
-
-            //    //ScheduleManager.ScheduleState = Enums.ScheduleState.Enabled;
-            //}
-            //else
-            //{
-            //    //ScheduleManager.ScheduleState = Enums.ScheduleState.Disabled;
-            //}
+            SaveSettings.IsEnabled = false;
         }
 
         private void DebugScheduleStart_Click(object sender, RoutedEventArgs e)
@@ -115,6 +110,25 @@ namespace ToggleWindowsDarkMode
         private void ToggleThemeDebugBuggon_Click(object sender, RoutedEventArgs e)
         {
             ToggleDarkMode.SwitchTheme();
+        }
+
+        private void ClearScheduleButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void SaveButtonV2_Click(object sender, RoutedEventArgs e)
+        {
+            if (ScheduleManager.cancellationTokenSource.Token.CanBeCanceled)
+            {
+                ScheduleManager.cancellationTokenSource.Cancel();
+            }
+
+            var scheduleInput = ScheduleTime.Value;
+            if (scheduleInput != Properties.Settings.Default.ScheduledTime) SaveSettings.IsEnabled = true;
+
+            Properties.Settings.Default.ScheduledTime = (DateTime)scheduleInput;
+            Properties.Settings.Default.Save();
         }
     }
 }

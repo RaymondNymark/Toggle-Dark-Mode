@@ -19,7 +19,7 @@
                               Margin="25,36,0,0" Checked="EnableRunOnStartup_Checked" Unchecked="EnableRunOnStartup_Unchecked"/>
                     <Label Content="Scheduling" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0"/>
                     <CheckBox x:Name="EnableScheduling" Content="Enable Scheduling" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top" Checked="EnableScheduling_Checked" Unchecked="EnableScheduling_Unchecked"/>
-                    <xctk:TimePicker x:Name="ScheduleTime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,142,0,0" Width="136"/>
+                    <xctk:TimePicker x:Name="ScheduleTime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,160,0,0" Width="136" IsEnabled="False"/>
                     <!--<RadioButton Content="Flip the theme between dark and light mode at a certain time of day" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,135,0,0" Checked="RadioButton_Checked"/>
                     <RadioButton Content="Set a time that automatically flips" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,223,0,0"/>-->
                 </Grid>
@@ -52,6 +52,7 @@
             </TabItem>
         </TabControl>
         <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="490,540,0,0" Click="CancelButton_Click"/>
-        <Button x:Name="SaveSettings" Content="Done" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="410,540,0,0" Click="SaveSettings_Click"/>
+        <Button x:Name="SaveSettings" Content="Done" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="410,540,0,0" Click="SaveSettings_Click" IsEnabled="False"/>
+        <Button x:Name="SaveButton" Content="✔️" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Margin="180,195,0,0" FontWeight="Bold" Background="White" Foreground="#FF11BF00" Click="SaveButtonV2_Click" IsEnabled="False"/>
     </Grid>
 </Window>

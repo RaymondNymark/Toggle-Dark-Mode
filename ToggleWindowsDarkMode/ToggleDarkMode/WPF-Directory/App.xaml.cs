@@ -23,6 +23,9 @@ namespace ToggleWindowsDarkMode
 
             // Sets the current iconsource to the current theme.
             ToggleDarkMode.IconState = (Enums.IconState)ToggleDarkMode.ThemeState;
+
+            // Runs scheduleManager startup process.
+            ScheduleManager.ScheduleStartupProcess();
         }
 
         protected override void OnExit(ExitEventArgs e)
