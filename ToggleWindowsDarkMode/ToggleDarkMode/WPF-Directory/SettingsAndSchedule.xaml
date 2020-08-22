@@ -41,7 +41,7 @@
                     <Label Content="Have a nice day!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,319,0,0" RenderTransformOrigin="-1.842,-0.577" Grid.Column="1" Height="33" Width="250" FontSize="16"/>
                 </Grid>
             </TabItem>
-            <TabItem x:Name="Debug" Header="Debug">
+            <TabItem x:Name="Debug" Header="Debug" Visibility="Hidden">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="107*"/>
