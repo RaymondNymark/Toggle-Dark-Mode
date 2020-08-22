@@ -127,7 +127,7 @@ namespace ToggleWindowsDarkMode
             var scheduleInput = ScheduleTime.Value;
             if (scheduleInput != Properties.Settings.Default.ScheduledTime) SaveSettings.IsEnabled = true;
 
-            Properties.Settings.Default.ScheduledTime = (DateTime)scheduleInput;
+            Properties.Settings.Default.ScheduledTime = ((DateTime)scheduleInput).ToUniversalTime();
             Properties.Settings.Default.Save();
         }
     }
