@@ -21,7 +21,7 @@
                     <Label Content="Scheduling" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0" FontSize="16"/>
                     <Button x:Name="SaveButton" Content="✔️" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Margin="215,203,0,0" FontWeight="Bold" Background="White" Foreground="#FF11BF00" Click="SaveButtonV2_Click" IsEnabled="False"/>
                     <Label Content="When should the theme change?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,169,0,0" FontSize="16"/>
-                    <Label Content="(Click the checkmark to confirm selection of the time)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,228,0,0" Background="{x:Null}" Foreground="#FF818181"/>
+                    <Label Content="(Click the checkmark to confirm selection of the time)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,228,0,0" Background="{x:Null}" Foreground="#FF818181" Width="297"/>
                     <CheckBox x:Name="EnableScheduling" Content="Enable Scheduling to automatically switch the theme at&#xD;&#xA; a certain time of day." HorizontalAlignment="Left" Margin="25,113,0,0" VerticalAlignment="Top" Checked="EnableScheduling_Checked" Unchecked="EnableScheduling_Unchecked" FontSize="16"/>
                     <xctk:TimePicker x:Name="ScheduleTime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,203,0,0" Width="156" IsEnabled="False"/>
                     <!--<RadioButton Content="Flip the theme between dark and light mode at a certain time of day" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,135,0,0" Checked="RadioButton_Checked"/>
