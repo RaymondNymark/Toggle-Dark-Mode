@@ -6,20 +6,24 @@
         xmlns:local="clr-namespace:ToggleWindowsDarkMode"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="ToggleWindowsDarkMode.SettingsAndSchedule"
         mc:Ignorable="d"
-        Title="Toggle-Dark-Mode Options" Height="600" Width="570">
+        ResizeMode="NoResize"
+        Title="Toggle-Dark-Mode Options" Height="482" Width="579">
     <Grid Margin="0,-10,2,2">
-        <TabControl HorizontalAlignment="Left" Height="520" VerticalAlignment="Top" Width="542" Margin="10,10,0,0">
+        <TabControl HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="542" Margin="10,10,0,0">
             <TabItem Header=" General Settings ">
-                <Grid Background="White" Margin="0,0,0,31">
+                <Grid Background="White" Height="355" VerticalAlignment="Top">
                     <Label Content="Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
                     <CheckBox x:Name="EnableRunOnStartup"
                               Content="Run Toggle-Dark-Mode when Windows starts"
                               HorizontalAlignment="Left"
                               VerticalAlignment="Top"
-                              Margin="25,36,0,0" Checked="EnableRunOnStartup_Checked" Unchecked="EnableRunOnStartup_Unchecked"/>
+                              Margin="25,41,0,0" Checked="EnableRunOnStartup_Checked" Unchecked="EnableRunOnStartup_Unchecked"/>
                     <Label Content="Scheduling" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0"/>
-                    <CheckBox x:Name="EnableScheduling" Content="Enable Scheduling" HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top" Checked="EnableScheduling_Checked" Unchecked="EnableScheduling_Unchecked"/>
-                    <xctk:TimePicker x:Name="ScheduleTime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25,160,0,0" Width="136" IsEnabled="False"/>
+                    <Button x:Name="SaveButton" Content="✔️" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Margin="201,170,0,0" FontWeight="Bold" Background="White" Foreground="#FF11BF00" Click="SaveButtonV2_Click" IsEnabled="False"/>
+                    <Label Content="When should the theme change?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,144,0,0"/>
+                    <Label Content="(Click the checkmark to confirm selection of the time)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,190,0,0" FontSize="9" Background="{x:Null}" Foreground="#FF818181"/>
+                    <CheckBox x:Name="EnableScheduling" Content="Enable Scheduling to automatically switch the theme at a certain time of day." HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top" Checked="EnableScheduling_Checked" Unchecked="EnableScheduling_Unchecked"/>
+                    <xctk:TimePicker x:Name="ScheduleTime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,170,0,0" Width="156" IsEnabled="False"/>
                     <!--<RadioButton Content="Flip the theme between dark and light mode at a certain time of day" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,135,0,0" Checked="RadioButton_Checked"/>
                     <RadioButton Content="Set a time that automatically flips" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,223,0,0"/>-->
                 </Grid>
@@ -51,8 +55,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="490,540,0,0" Click="CancelButton_Click"/>
-        <Button x:Name="SaveSettings" Content="Done" HorizontalAlignment="Left" VerticalAlignment="Top" Width="60" Margin="410,540,0,0" Click="SaveSettings_Click" IsEnabled="False"/>
-        <Button x:Name="SaveButton" Content="✔️" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Margin="180,195,0,0" FontWeight="Bold" Background="White" Foreground="#FF11BF00" Click="SaveButtonV2_Click" IsEnabled="False"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="477,410,0,0" Click="CancelButton_Click" Height="30"/>
+        <Button x:Name="SaveSettings" Content="Done" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="380,410,0,0" Click="SaveSettings_Click" IsEnabled="False" Height="30"/>
     </Grid>
 </Window>
