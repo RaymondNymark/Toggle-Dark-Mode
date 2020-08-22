@@ -73,12 +73,14 @@ namespace ToggleWindowsDarkMode
             ScheduleTime.IsEnabled = true;
             SaveButton.IsEnabled = true;
 
+            if (EnableScheduling.IsChecked != Properties.Settings.Default.SchedulingIsEnabled) SaveSettings.IsEnabled = true;
             //ScheduleTime.IsEnabled = true;
             //SaveSettings.IsEnabled = true;
         }
 
         private void EnableScheduling_Unchecked(object sender, RoutedEventArgs e)
         {
+            if (EnableScheduling.IsChecked != Properties.Settings.Default.SchedulingIsEnabled) SaveSettings.IsEnabled = true;
             ScheduleTime.IsEnabled = false;
             SaveButton.IsEnabled = false;
         }
@@ -126,10 +128,15 @@ namespace ToggleWindowsDarkMode
                 ScheduleManager.cancellationTokenSource.Cancel();
             }
 
-            var scheduleInput = ScheduleTime.Value;
-            if (scheduleInput != Properties.Settings.Default.ScheduledTime) SaveSettings.IsEnabled = true;
+            var scheduleInput = ((DateTime)ScheduleTime.Value).ToUniversalTime();
 
-            Properties.Settings.Default.ScheduledTime = ((DateTime)scheduleInput).ToUniversalTime();
+            // Checks if any of the inputs are different, if they are it enables
+            // the main save button.
+            if (scheduleInput != Properties.Settings.Default.ScheduledTime || EnableScheduling.IsChecked != Properties.Settings.Default.SchedulingIsEnabled) SaveSettings.IsEnabled = true;
+            //if (scheduleInput != Properties.Settings.Default.ScheduledTime) SaveSettings.IsEnabled = true;
+
+
+            Properties.Settings.Default.ScheduledTime = scheduleInput;
             Properties.Settings.Default.Save();
         }
 
