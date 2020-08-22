@@ -12,12 +12,19 @@ namespace ToggleWindowsDarkMode
     public static class ScheduleManager
     {
         // Private CTS used to keep track if scheduled task was canceled. 
-        private static CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+        public static CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
+        public static void CancelScheduledTask()
+        {
+            cancellationTokenSource.Cancel();
+        }
 
         #region New Horizons
         public static void SwitchThemeAt(DateTime whenToSwitch)
         {
             cancellationTokenSource = new CancellationTokenSource();
+
+            var whenToSwitchUTC = whenToSwitch.ToUniversalTime();
 
             var dateNow = DateTime.UtcNow;
             TimeSpan howLongToDelayFor;
@@ -25,12 +32,23 @@ namespace ToggleWindowsDarkMode
             if (whenToSwitch > dateNow)
             {
                 howLongToDelayFor = whenToSwitch - dateNow;
+
+                // Fix settings
+                Properties.Settings.Default.ScheduledTime = whenToSwitch;
+                Properties.Settings.Default.Save();
             }
             else
             {
                 // Switches if it's due to a change.
                 Application.Current.Dispatcher.Invoke(() => ToggleDarkMode.SwitchTheme());
-                whenToSwitch = whenToSwitch.AddDays(1);
+
+                while (whenToSwitch < dateNow)
+                {
+                    whenToSwitch = whenToSwitch.AddDays(1);
+                }
+                // Fix settings
+                Properties.Settings.Default.ScheduledTime = whenToSwitch;
+                Properties.Settings.Default.Save();
 
                 howLongToDelayFor = whenToSwitch - dateNow;
             }
@@ -42,12 +60,15 @@ namespace ToggleWindowsDarkMode
                 // thread.
                 Application.Current.Dispatcher.Invoke(() => ToggleDarkMode.SwitchTheme());
 
+                whenToSwitch = whenToSwitch.AddDays(1);
                 // Set up the method to run the next day.
-                SwitchThemeAt(whenToSwitch.AddDays(1));
+                SwitchThemeAt(whenToSwitch);
+                // Fix settings for new date.
+
             }, cancellationTokenSource.Token);
         }
 
-        public static ScheduleState ScheduleStateV2
+        public static ScheduleState ScheduleState
         {
             get
             {
