@@ -2,6 +2,8 @@
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Diagnostics;
+using System.Windows.Navigation;
 
 namespace ToggleWindowsDarkMode
 {
@@ -129,6 +131,12 @@ namespace ToggleWindowsDarkMode
 
             Properties.Settings.Default.ScheduledTime = ((DateTime)scheduleInput).ToUniversalTime();
             Properties.Settings.Default.Save();
+        }
+
+        private void Hyperlink_RequestNavigate(object sender, System.Windows.Navigation.RequestNavigateEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo(e.Uri.AbsoluteUri));
+            e.Handled = true;
         }
     }
 }

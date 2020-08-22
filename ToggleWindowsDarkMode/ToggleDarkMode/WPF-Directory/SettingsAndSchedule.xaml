@@ -12,18 +12,18 @@
         <TabControl HorizontalAlignment="Left" Height="390" VerticalAlignment="Top" Width="542" Margin="10,10,0,0">
             <TabItem Header=" General Settings ">
                 <Grid Background="White" Height="355" VerticalAlignment="Top">
-                    <Label Content="Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label Content="Windows" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16"/>
                     <CheckBox x:Name="EnableRunOnStartup"
                               Content="Run Toggle-Dark-Mode when Windows starts"
                               HorizontalAlignment="Left"
                               VerticalAlignment="Top"
-                              Margin="25,41,0,0" Checked="EnableRunOnStartup_Checked" Unchecked="EnableRunOnStartup_Unchecked"/>
-                    <Label Content="Scheduling" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0"/>
-                    <Button x:Name="SaveButton" Content="✔️" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Margin="201,170,0,0" FontWeight="Bold" Background="White" Foreground="#FF11BF00" Click="SaveButtonV2_Click" IsEnabled="False"/>
-                    <Label Content="When should the theme change?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,144,0,0"/>
-                    <Label Content="(Click the checkmark to confirm selection of the time)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,190,0,0" FontSize="9" Background="{x:Null}" Foreground="#FF818181"/>
-                    <CheckBox x:Name="EnableScheduling" Content="Enable Scheduling to automatically switch the theme at a certain time of day." HorizontalAlignment="Left" Margin="25,108,0,0" VerticalAlignment="Top" Checked="EnableScheduling_Checked" Unchecked="EnableScheduling_Unchecked"/>
-                    <xctk:TimePicker x:Name="ScheduleTime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="36,170,0,0" Width="156" IsEnabled="False"/>
+                              Margin="25,46,0,0" Checked="EnableRunOnStartup_Checked" Unchecked="EnableRunOnStartup_Unchecked" FontSize="16"/>
+                    <Label Content="Scheduling" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,77,0,0" FontSize="16"/>
+                    <Button x:Name="SaveButton" Content="✔️" HorizontalAlignment="Left" VerticalAlignment="Top" Width="20" Margin="215,203,0,0" FontWeight="Bold" Background="White" Foreground="#FF11BF00" Click="SaveButtonV2_Click" IsEnabled="False"/>
+                    <Label Content="When should the theme change?" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,169,0,0" FontSize="16"/>
+                    <Label Content="(Click the checkmark to confirm selection of the time)" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,228,0,0" Background="{x:Null}" Foreground="#FF818181"/>
+                    <CheckBox x:Name="EnableScheduling" Content="Enable Scheduling to automatically switch the theme at&#xD;&#xA; a certain time of day." HorizontalAlignment="Left" Margin="25,113,0,0" VerticalAlignment="Top" Checked="EnableScheduling_Checked" Unchecked="EnableScheduling_Unchecked" FontSize="16"/>
+                    <xctk:TimePicker x:Name="ScheduleTime" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,203,0,0" Width="156" IsEnabled="False"/>
                     <!--<RadioButton Content="Flip the theme between dark and light mode at a certain time of day" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,135,0,0" Checked="RadioButton_Checked"/>
                     <RadioButton Content="Set a time that automatically flips" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="44,223,0,0"/>-->
                 </Grid>
@@ -31,10 +31,14 @@
             <TabItem Header=" About... ">
                 <Grid Background="White">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="27*"/>
-                        <ColumnDefinition Width="241*"/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="About will be coming soon!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" Grid.ColumnSpan="2"/>
+                    <Label Content="Thank you for checking this application out! (:&#xD;&#xA;If you find any bugs or have any feature requests,&#xD;&#xA;please come by here. " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,16,0,0" Grid.Column="1" Height="80" Width="357" FontSize="16"/>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="167,64,0,0" RenderTransformOrigin="-1.842,-0.577" Grid.Column="1" Height="26" Width="167" FontSize="16"> <Hyperlink RequestNavigate="Hyperlink_RequestNavigate" NavigateUri="https://github.com/RaymondNymark/Toggle-Dark-Mode/">Toggle-Dark-Mode</Hyperlink></TextBlock>
+                    <Label Content="Created by Raymond Nymark&#xD;&#xA;Find my github page here: " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,115,0,0" RenderTransformOrigin="-1.842,-0.577" Grid.Column="1" Height="65" Width="250" FontSize="16"/>
+                    <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="204,142,0,0" RenderTransformOrigin="-1.842,-0.577" Grid.Column="1" Height="26" Width="52" FontSize="16"><Hyperlink NavigateUri="https://github.com/RaymondNymark/"><Run Text="Github"/></Hyperlink></TextBlock>
+                    <Label Content="Have a nice day!" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,319,0,0" RenderTransformOrigin="-1.842,-0.577" Grid.Column="1" Height="33" Width="250" FontSize="16"/>
                 </Grid>
             </TabItem>
             <TabItem x:Name="Debug" Header="Debug">
@@ -55,7 +59,7 @@
                 </Grid>
             </TabItem>
         </TabControl>
-        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="477,410,0,0" Click="CancelButton_Click" Height="30"/>
-        <Button x:Name="SaveSettings" Content="Done" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="380,410,0,0" Click="SaveSettings_Click" IsEnabled="False" Height="30"/>
+        <Button x:Name="CancelButton" Content="Cancel" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="477,410,0,0" Click="CancelButton_Click" Height="30" FontSize="18"/>
+        <Button x:Name="SaveSettings" Content="Save" HorizontalAlignment="Left" VerticalAlignment="Top" Width="73" Margin="380,410,0,0" Click="SaveSettings_Click" IsEnabled="False" Height="30" FontSize="18"/>
     </Grid>
 </Window>
