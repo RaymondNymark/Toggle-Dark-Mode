@@ -4,9 +4,9 @@ Toggle-Dark-Mode is a Windows 10 application that moves the default switching be
 This App is built using WPF, and the [Hardcodet.NotifyIcon.Wpf](https://www.nuget.org/packages/Hardcodet.NotifyIcon.Wpf/ "Hardcodet.NotifyIcon.Wpf") nuget package to be able to use the Windows tray.
 
 ## Features
-- System tray icon you can left click switch between Dark and Light system-wide themes!
-- Button to run this application on startup.
-- Scheduling options to automatically switch between themes at certain times during the day (Coming soon..!)
+- *System tray icon you can left click switch between Dark and Light system-wide themes!*
+- *Button to run this application on startup.*
+- **Brand new:** *Scheduling options to automatically switch between themes at certain times during the day!*
 
 Requirements:
 - Windows 10 or higher.
