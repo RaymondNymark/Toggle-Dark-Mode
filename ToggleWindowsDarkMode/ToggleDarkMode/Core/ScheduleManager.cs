@@ -33,7 +33,6 @@ namespace ToggleWindowsDarkMode
             {
                 howLongToDelayFor = whenToSwitch - dateNow;
 
-                // Fix settings
                 Properties.Settings.Default.ScheduledTime = whenToSwitch;
                 Properties.Settings.Default.Save();
             }
@@ -46,7 +45,6 @@ namespace ToggleWindowsDarkMode
                 {
                     whenToSwitch = whenToSwitch.AddDays(1);
                 }
-                // Fix settings
                 Properties.Settings.Default.ScheduledTime = whenToSwitch;
                 Properties.Settings.Default.Save();
 
